@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
-
+    //* accessing config using Config::get('file.key.nextkey')
+    
     /*
     |--------------------------------------------------------------------------
     | Application Name
