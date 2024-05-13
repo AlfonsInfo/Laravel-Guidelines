@@ -195,6 +195,7 @@ return [
         'CommonConstant' => App\Constant\CommonConstant::class,
         'TableKeyConstant' =>App\Constant\TableKeyConstant::class,
         'TableNameConstant' =>App\Constant\TableNameConstant::class,
+        'ParamKeyValueConstant' =>App\Constant\ParamKeyValueConstant::class,
         // ...
     ])->toArray(),
 
