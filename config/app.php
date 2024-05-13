@@ -192,6 +192,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'CommonConstant' => App\Constant\CommonConstant::class,
+        'TableKeyConstant' =>App\Constant\TableKeyConstant::class,
+        'TableNameConstant' =>App\Constant\TableNameConstant::class,
         // ...
     ])->toArray(),
 
