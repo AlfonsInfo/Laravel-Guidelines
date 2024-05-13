@@ -10,29 +10,15 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * The path to the "home" route for your application.
-     *
-     * This is used by Laravel authentication to redirect users after login.
-     *
-     * @var string
-     */
     public const HOME = '/home';
 
-    /**
-     * The controller namespace for the application.
-     *
-     * When present, controller route declarations will automatically be prefixed with this namespace.
-     *
-     * @var string|null
-     */
-    // protected $namespace = 'App\\Http\\Controllers';
+    protected $namespace = 'App\Http\Controllers';
+    protected $apiNamespace = 'App\Http\Controllers\api';
+    protected $apiCustom1 = 'App\Http\Controllers\api\Custom1';
+    protected $apiCustom2 = 'App\Http\Controllers\api\Custom2';
 
-    /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
-     */
+
+
     public function boot()
     {
         $this->configureRateLimiting();
@@ -42,6 +28,19 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('api')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
+
+            //* PPDB Routes
+            Route::middleware('api')
+            ->prefix('api/custom1')
+            ->namespace($this->apiCustom1)
+            ->group(base_path('routes/custom/custom1.php'));
+
+            //* Keuangan Routes
+            Route::middleware('api')
+            ->prefix('api/custom2')
+            ->namespace($this->apiCustom2)
+            ->group(base_path('routes/custom/custom2.php'));
+
 
             Route::middleware('web')
                 ->namespace($this->namespace)
