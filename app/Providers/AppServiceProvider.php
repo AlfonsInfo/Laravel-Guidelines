@@ -15,8 +15,11 @@ class AppServiceProvider extends ServiceProvider
             DB::listen(function(QueryExecuted $query){
                 // Log::info($query->sql);
             });
-            // $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
-            // $this->app->register(TelescopeServiceProvider::class);
+
+            if ($this->app->environment('local')) {
+                $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+                $this->app->register(TelescopeServiceProvider::class);
+            }
         }
     }
 

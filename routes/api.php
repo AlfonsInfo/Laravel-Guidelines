@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/test', function (Request $request) {
+    event(new App\Events\ExampleEvent("Hello World"));
+    return response()->json(['message' => 'Event has been sent']);
+});
